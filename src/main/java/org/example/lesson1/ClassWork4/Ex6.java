@@ -1,28 +1,33 @@
 package org.example.lesson1.ClassWork4;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Ex3 {
+public class Ex6 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int n = scanner.nextInt();
-        LinkedList<Integer> linkedList = createList(n);
+//        int n = scanner.nextInt();
+        LinkedList<Integer> linkedList = new LinkedList<>(Arrays.asList(1,2,-3,-2,-1,4,5,-6,7));
         System.out.println("linkedList = " + linkedList);
-        //Построить однонаправленный список целых чисел. Найти сумму четных элементов списка.
-        int sum= 0 ;
-        for (Integer el : linkedList) {
-            if(el%2==0) sum+=el;
+        remElem(linkedList);
+    }
+
+    private static void remElem(LinkedList<Integer> linkedList) {
+        for (int i = linkedList.size()-1; i >=0; i--) {
+            if(linkedList.get(i)<0){
+                linkedList.remove(i);
+            }
         }
-        System.out.println("sum = " + sum);
+        System.out.println("linkedList = " + linkedList);
     }
 
     /**
      * @param n количество элементов в созданном списке
      * @return новый список
      */
-    static LinkedList<Integer> createList(int n) {
+    private static LinkedList<Integer> createList(int n) {
         LinkedList<Integer> linkedList = new LinkedList<>();
         Random random = new Random();
         for (int i = 0; i < n; i++) {
@@ -31,7 +36,3 @@ public class Ex3 {
         return linkedList;
     }
 }
-
-/**
-Построить однонаправленный список целых чисел. Найти сумму четных элементов списка.
- */

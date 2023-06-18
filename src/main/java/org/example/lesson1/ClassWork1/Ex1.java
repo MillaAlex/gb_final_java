@@ -16,6 +16,15 @@ public class Ex1 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
+        int sum = 0;
+        while (n != 0) {
+            int b = scanner.nextInt();
+            if (n > b && b < 0) {
+                sum += n;
+            }
+            n  = b;
+        }
+        System.out.println("sum = " + sum);
         System.out.println("subtractProductAndSum = " + subtractProductAndSum(n));
         scanner.close();
     }
